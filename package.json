@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "monitor": "nodemon index.js",
-    "test": "mocha test/index.js -t 30000"    
+    "test": "mocha test/index.js -t 30000"
   },
   "keywords": [
     "bot"
@@ -15,6 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "@slack/client": "^4.3.1",
-    "express": "^4.16.3"
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6"
   }
 }

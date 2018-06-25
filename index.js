@@ -1,13 +1,29 @@
-var express = require('express')
-var app = express()
+const express = require('express')
+const cors       = require('cors');
+const bodyParser = require('body-parser');
 
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', function (req, res) {
-  res.send('hello world')
-})
+const app = express()
+
+app.disable('etag');
+app.set('trust proxy', true);
+
+// const whitelist = ['https://ice-lolly.herokuapp.com/', 'http://localhost/'];
+const corsOptions = {
+    origin: ['*'],
+};
+
+app.use(cors(corsOptions));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.use('/', express.static('static'));
+app.use('/doc', express.static('doc'));
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, function () {
-    console.log(`Ice Candy listening on port ${port}!`);
+    console.log(`Ice Lolly listening on port ${port}!`);
 });
