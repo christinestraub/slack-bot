@@ -1,29 +1,33 @@
 const express = require('express')
-const cors       = require('cors');
-const bodyParser = require('body-parser');
+const cors       = require('cors')
+const bodyParser = require('body-parser')
+
+const routes     = require('./modules/routes');
 
 const app = express()
 
-app.disable('etag');
-app.set('trust proxy', true);
+app.disable('etag')
+app.set('trust proxy', true)
 
 // const whitelist = ['https://ice-lolly.herokuapp.com/', 'http://localhost/'];
 const corsOptions = {
-    origin: ['*'],
-};
+  origin: ['*'],
+}
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions))
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
-    extended: true
-}));
+  extended: true
+}))
 
-app.use('/', express.static('static'));
-app.use('/doc', express.static('doc'));
+app.use('/', express.static('static'))
+app.use('/doc', express.static('doc'))
 
-const port = process.env.PORT || 3000;
+routes(app);
+
+const port = process.env.PORT || 3000
 
 app.listen(port, function () {
-    console.log(`Ice Lolly listening on port ${port}!`);
-});
+  console.log(`Ice Lolly listening on port ${port}!`)
+})
