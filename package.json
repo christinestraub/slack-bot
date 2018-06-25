@@ -1,0 +1,18 @@
+{
+  "name": "lolly-bot",
+  "version": "1.0.0",
+  "description": "Simple bot for Slack users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "Christine",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^4.3.1",
+    "express": "^4.16.3"
+  }
+}
