@@ -1,0 +1,25 @@
+---
+swagger: "2.0"
+info:
+  description: "API for the Ice Lolly"
+  version: "1.0.0"
+  title: "Ice Lolly API"
+basePath: "/api"
+tags:
+- name: "Webhook"
+  description: "Webhook for Lolly bot"
+schemes:
+- "https"
+- "http"
+produces:
+- "application/json"
+paths:
+  /webhooks:
+definitions:
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+      message:
+        type: "string"
