@@ -5,6 +5,8 @@ const querystring = require('querystring')
 
 let oauthCredential = null
 
+console.log(process.env.SAELOS_API_URL)
+
 const api = axios.create({
   baseURL: process.env.SAELOS_API_URL,
 })
