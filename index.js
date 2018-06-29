@@ -1,6 +1,8 @@
 const express = require('express')
 const cors       = require('cors')
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv')
+
 
 const routes     = require('./modules/routes');
 
@@ -26,7 +28,7 @@ app.use('/doc', express.static('doc'))
 
 routes(app);
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 4000
 
 app.listen(port, function () {
   console.log(`Ice Lolly listening on port ${port}!`)

@@ -1,1 +1,2 @@
-# Ice Lolly - Backend for Slack Bot
+# lolly
+Lolly - the Slack CRM
