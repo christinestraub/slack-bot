@@ -38,17 +38,21 @@ class Saelos {
           }
         }
       )
-      if (response.status === 200) {
-        const { data } = response
+
+      const { status, data } = response
+
+      if (status === 200) {
         if (data.token_type === models.saelos.tokenTypes.Bearer) {
           tokenStore[this.user_name] = data
           return true
         }
       } else {
-        return false 
+        console.error(data)
+        return false
       }
     } catch(_) {
-      console.log(_)
+      const { data } = _.response
+      console.error(data)
       return false
     }
   }
@@ -56,7 +60,7 @@ class Saelos {
   getAuth() {
     return new Promise((resolve, reject) => {
       const token = tokenStore[this.user_name]
-      console.log('getAuth', token)
+      // console.log('getAuth', token)
       if (token) {
         resolve(token)
       } else {
